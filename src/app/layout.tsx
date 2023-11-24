@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation/NavigationBar";
 
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Home from './index'
+import Home from '../pages/index'
 
 const inter = Inter({ subsets: ["latin"] });
 

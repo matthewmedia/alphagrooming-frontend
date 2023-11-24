@@ -1,7 +1,11 @@
 import Layout from "@/components/Layout/Layout";
+import "../app/globals.css";
+import Navigation from "@/components/Navigation/NavigationBar";
 
 export default function Home() {
   return (
+    <>
+    <Navigation />
     <Layout style={{ backgroundImage: `url('/background.png')` }}>
       <div className="flex justify-center mt-[-50px]">
         <div className="max-w-4xl w-full flex items-center justify-center font-mono text-9xl text-center lg:flex leading-[13rem] flex-col">
@@ -30,5 +34,6 @@ export default function Home() {
         </div>
       </div>
     </Layout>
+    </>
   )
 }
