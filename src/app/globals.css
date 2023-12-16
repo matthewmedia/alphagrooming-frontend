@@ -4,171 +4,33 @@
 
 
 
-@font-face {
-    font-family: 'Poppins';
-    font-style: italic;
-    font-weight: 300;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiDyp8kv8JHgFVrJJLm21lVF9eL.ttf) format('truetype');
-  }
+
+
   @font-face {
-    font-family: 'Poppins';
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiGyp8kv8JHgFVrJJLucHtF.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: italic;
-    font-weight: 500;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiDyp8kv8JHgFVrJJLmg1hVF9eL.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: italic;
-    font-weight: 600;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiDyp8kv8JHgFVrJJLmr19VF9eL.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: italic;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiDyp8kv8JHgFVrJJLmy15VF9eL.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: italic;
-    font-weight: 800;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiDyp8kv8JHgFVrJJLm111VF9eL.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLDz8Z1xlEA.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJfedw.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLGT9Z1xlEA.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLEj6Z1xlEA.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLCz7Z1xlEA.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLDD4Z1xlEA.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
+    font-family: 'Merriweather';
+    font-style: bold;
     font-weight: 900;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLBT5Z1xlEA.ttf) format('truetype');
+    src: url(https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap) format('truetype');
   }
+
   @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 300;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOjCnqEu92Fr1Mu51TjASc6CsE.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 500;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOjCnqEu92Fr1Mu51S7ACc6CsE.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
+    font-family: 'MerriweatherSecondary';
+    font-style: regular;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOjCnqEu92Fr1Mu51TzBic6CsE.ttf) format('truetype');
+    src: url(https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap) format('truetype');
   }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 900;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOjCnqEu92Fr1Mu51TLBCc6CsE.ttf) format('truetype');
+ @layer base {
+    html {
+      font-family: "Merriweather", system-ui, serif;
+    }
   }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmYUtfBBc9.ttf) format('truetype');
-  }
+
   /*--Custom Variables--*/
   :root {
-    --primary-font: 'Poppins', sans-serif;
-    --secondary-font: 'Roboto', sans-serif;
+    --primary-font: 'Merriweather', serif;
+    --secondary-font: 'MerriweatherSecondary', serif;
     --font-awesome: 'Font Awesome 5 Pro';
     --primary-color: #D8D8D8;
     --secondary-color: #FF9500;
@@ -233,6 +95,9 @@
     --shadow-light: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
     --shadow-dark: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
     --cubic-easing: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  nav {
+    font-family: var(--secondary-font);
   }
   /*--Spacing--*/
   .m-xs-0 {
@@ -4498,11 +4363,11 @@
   .main-navigation li {
     position: relative;
     margin-right: 2rem;
-    font-family: var(--primary-font);
+    font-family: var(--secondary-font);
     font-size: 1.6rem;
     line-height: 2.4rem;
     color: #fff;
-    font-weight: var(--p-medium);
+    font-weight: 700;
     padding: 3.1rem 0.5rem 3rem;
   }
   .main-navigation li.has-dropdown {
@@ -4557,16 +4422,48 @@
 
   }
 
-  .image-border-gradient {
+  .slogan {
+   
+    color: var(--grey-dark-one);
+    font-weight: var(--p-semi-bold);
+    margin-bottom: 0;
+    color: #14FE00;
+    text-shadow: 2px 2px #000
+  }
+
+  /*.image-border-gradient {
     position: absolute;
-    top: -30px;
-    left: -30px;
-    right: -30px;
+    top: 0px;
+    left: -5px;
+    right: -5px;
     bottom: -30px;
     background: linear-gradient(to top, #14FE00, #CBCBCB);
     z-index: -1;
     border-radius: 25px;
+    border-top: none !important;
+  }*/
+  .image-border-gradient {
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    right: 4px;
+    bottom: -30px;
+    background: linear-gradient(to top, #14FE00, #CBCBCB, transparent);
+    z-index: -1;
+    border-radius: 0 0 27px 127px;
   }
+  .image-border-gradient::before {
+    content : '';
+    position: absolute;
+    top :auto;
+    left: -1px;
+    right: -1px;
+    bottom: -28px;
+    background: linear-gradient(to bottom, transparent, #14FE00, #CBCBCB);
+    z-index: -1;
+    border-radius: 0 0 20px 10px;
+  }
+
   .main-navigation a:hover::before {
     width: 100%;
   }

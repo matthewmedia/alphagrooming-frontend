@@ -11,10 +11,12 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          'conic-gradient(from 180deg at 100% 100%, var(--tw-gradient-stops))',
       },
       colors: {
         'custom-gray': '#D8D8D8',
+        'custom-green': '#14FE00',
+
       },
     },
   },

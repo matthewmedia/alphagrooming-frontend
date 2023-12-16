@@ -12,7 +12,7 @@ const Layout = ({
 }: Props) => {
   return (
     <div
-      className="min-h-screen pt-8 pb-16 tablet:pb-32 bg-no-repeat bg-center bg-cover screen px-4"
+      className="min-h-screen pt-8 pb-16 tablet:pb-32 bg-repeat bg-center bg-cover screen px-4"
       {...rest}
     >
       <PageWrapper>

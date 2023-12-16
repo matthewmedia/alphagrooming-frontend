@@ -1,4 +1,3 @@
-
 import React from "react";
 import Link from "next/link";
 
@@ -8,61 +7,27 @@ const Navbar = () => {
   return (
     <>
       <header className="page-header">
-			<nav className="navbar bg-custom-gray navbar__style-three text-black" id="navbar-default">
-				<div className="container-fluid p-l-md-30 p-r-md-30">
-					<div className="navbar-inner justify-content-between ">
-						<div className="brand-logo-container">
-							<Logo />      
-						</div>
-						<div className="main-nav-wrapper">
-							<ul className="main-navigation list-inline text-black ">
-								<li key="/" >
-									<Link href="/" className="text-black" >
-											Home
-									</Link>
-								</li>
-								<li key="/">
-									<Link href="/"   className="text-black">
-											Skin Care Routines
-									</Link>
-								</li>
-								<li key="/" >
-									<Link href="/"  className="text-black" >
-											Beard Care & Grooming
-									</Link>
-								</li>
-								<li key="/">
-									<Link href="/"  className="text-black">
-										Hair Styling & Hair Care
-									</Link>
-								</li>
-							</ul>
-						</div>
-            <div className="ml-auto flex">
-              <ul className="main-navigation list-inline">
-                  <li key="/">
-                    <Link href="/"  className="text-black">
-                      About
-                    </Link>
-                  </li>
-
-                  <li key="/">
-                    <Link href="/"  className="text-black">
-                      Contact
-                    </Link>
-                  </li>
-
-                  <li key="/">
-                    <Link href="/"  className="text-black">
-                      Privacy Policy
-                    </Link>
-                  </li>
-              </ul>
+        <nav className="navbar bg-custom-gray navbar__style-three text-black" id="navbar-default">
+          <div className="container-fluid px-8 mx-auto flex justify-between items-center">
+            <div className="brand-logo-container">
+              <Logo />      
             </div>
-					</div>
-				</div>
-			</nav>
-		</header>
+            <div className="main-nav-wrapper flex justify-between items-center w-full">
+              <div className="main-navigation text-black flex space-x-4">
+                <Link href="/"><span className="nav text-black">Home</span></Link>
+                <Link href="/"><span className="text-black">Skin Care Routines</span></Link>
+                <Link href="/"><span className="text-black">Beard Care & Grooming</span></Link>
+                <Link href="/"><span className="text-black">Hair Styling & Hair Care</span></Link>
+              </div>
+              <div className="flex space-x-4">
+                <Link href="/"><span className="text-black">About</span></Link>
+                <Link href="/"><span className="text-black">Contact</span></Link>
+                <Link href="/"><span className="text-black">Privacy Policy</span></Link>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
     </>
   );
 };
