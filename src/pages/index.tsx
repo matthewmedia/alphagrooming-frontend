@@ -1,3 +1,4 @@
+"use client"
 import Layout from "@/components/Layout/Layout";
 import "../app/globals.css";
 import Navigation from "@/components/Navigation/NavigationBar";
@@ -5,11 +6,14 @@ import { Slogan } from "@/components/Slogan/Slogan";
 import ImageComponent from "@/components/ImageComponent/ImageComponent";
 import { FaAlignCenter } from "react-icons/fa";
 import PostLayoutThirteen from "@/components/PostLayoutOne/PostLayoutOne";
+import HeadMeta from "@/components/HeadMeta/HeadMeta";
 
 
 export default function Home() {
+
   return (
     <>
+      <HeadMeta/>
       <Navigation />
       <Layout style={{ backgroundImage: `url('/background.png')` }}>
         <div className="flex items-center justify-center  mt-auto flex-col sm:flex-row items-start">
@@ -22,7 +26,7 @@ export default function Home() {
         </div>
           <div className=" mb-16">
             <div className="flex items-center justify-center ">
-              <FaAlignCenter className="text-6xl text-custom-green"/>
+              <FaAlignCenter className="text-6xl text-custom-green mb-6"/>
               <h2 className="text-6xl text-dark-500">Trending Articles</h2>
             </div>
           </div>

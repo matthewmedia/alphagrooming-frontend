@@ -8498,5 +8498,9 @@
   .page-item{
     cursor: pointer !important;
   }
+
+  .thin-arrow svg {
+    stroke-width: 0.3 !important;
+  }
   
   
