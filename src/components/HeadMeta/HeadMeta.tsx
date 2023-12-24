@@ -53,7 +53,6 @@ const HeadMeta = () => {
             <meta name="msapplication-TileColor" content="#00a300"/>
             <meta name="theme-color" content="#ffffff"/>
             
-            Cannoicol Link 
             {pathname === '/' ? (<link rel="canonical" href={`${DOMAIN}`}/>) :( <link rel="canonical" href={`${DOMAIN}${pathname}`}/>)}
 
               
