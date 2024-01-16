@@ -1,1 +1,1 @@
-export const DOMAIN = 'https://alphagrooming.org';
+export const DOMAIN = 'https://www.alphagrooming.org';
