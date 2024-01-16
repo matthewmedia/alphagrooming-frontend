@@ -11,21 +11,22 @@ const PostLayoutThirteen = ({ posts }: { posts: SanityDocument[] }) => {
 
   return (
     <>
-    
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto">
+
         {posts.map((post) => (
         
-        <Link
-            key={post._id}
-            href={post.slug.current}
-        >
-            <div className="align-self-center border border-custom-green rounded-3xl shadow-2xl	bg-white px-4 pt-8 transform transition-transform duration-200 hover:scale-105">
-
+      
+            <div className="align-self-center border border-custom-green rounded-3xl shadow-2xl	bg-white px-4 pt-8 transform transition-transform duration-200 hover:scale-105 w-4/5 h-auto mx-auto ">
+            <Link
+                        key={post._id}
+                        href={post.slug.current}
+                    >
             <div className="border border-custom-green rounded-3xl w-full">
                 <Image
                     src={urlForImage(post.mainImage)}
-                    alt={post.mainImage.alt || ''}
+                    alt={post.mainImage.alt}
                     layout="responsive"
-                    width={300}
+                    width={100}
                     height={50}
                     placeholder="blur"
                     blurDataURL="/images/placeholder.png"
@@ -48,8 +49,10 @@ const PostLayoutThirteen = ({ posts }: { posts: SanityDocument[] }) => {
                     className="h-20 tablet:h-[100px] object-contain object-right ml-auto mt-[-30px] transform hover:scale-110 hover:-translate-x-1 hover:translate-x-1 transition-transform duration-200"
                     />
                 </div>
+            </Link>
             </div>
-        </Link>))}
+        ))}
+        </div>
    
     </>
   );
