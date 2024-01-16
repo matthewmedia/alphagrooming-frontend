@@ -1,3 +1,5 @@
+"use client"
+
 import Head from 'next/head'
 import React from 'react'
 import { DOMAIN } from '@/lib/constant';
@@ -13,7 +15,6 @@ const HeadMeta = () => {
            
            
             <meta charSet="utf-8" />
-
             <meta name="twitter:card" content="summary_large_image"/>
             <meta name="twitter:site" content="@site"/>
             <meta property="og:type" content ="article"/>
@@ -56,13 +57,12 @@ const HeadMeta = () => {
             {pathname === '/' ? (<link rel="canonical" href={`${DOMAIN}`}/>) :( <link rel="canonical" href={`${DOMAIN}${pathname}`}/>)}
 
               
-
+ 
 
             <meta name="description" content="Welcome to Alpha Grooming, the premier resource for all men's skincare, beard care, and haircare! At Alpha Grooming, we believe that every man deserves to look and feel his best, which is why we've put together an extensive collection of expert techniques, innovative routines, and useful recommendations to assist you in putting your best face forward.That said, grooming is only one aspect of expressing your alpha identity. We're here to educate you, inspire confidence, and help you up your groom!" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <link rel="icon" type="image/x-icon" href={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH ?? '' : ''}/favicon/favicon.ico`} />
 
-            {/* Favicon */}
            
 
         </Head>

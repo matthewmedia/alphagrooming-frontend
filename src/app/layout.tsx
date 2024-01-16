@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Home from '../pages/index'
+import Home from './page'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata : Metadata = {
@@ -18,12 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <html lang="en">
         <body className={inter.className}>
         <Navigation />
-        <Home />
         {children}
       </body>
-    </div>
+    </html>
   );
 }
