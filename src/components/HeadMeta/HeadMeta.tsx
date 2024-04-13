@@ -63,6 +63,9 @@ const HeadMeta = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <link rel="icon" type="image/x-icon" href={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH ?? '' : ''}/favicon/favicon.ico`} />
 
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WV7PV1X9C"></script>
+  
+
            
 
         </Head>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.1",
     "@sanity/client": "^6.11.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/overlays": "^2.3.5",
@@ -16,7 +17,7 @@
     "@sanity/vision": "^3.24.1",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2",
-    "next": "^14.0.4",
+    "next": "^14.2.1",
     "next-runtime-dotenv": "^1.5.1",
     "next-sanity": "^7.0.10",
     "react": "^18",

@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Home from './page'
+import { GoogleAnalytics } from '@next/third-parties/google'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata : Metadata = {
@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
         <body className={inter.className}>
         <Navigation />
+        <GoogleAnalytics  gaId='G-6WV7PV1X9C'/>
         {children}
       </body>
     </html>
