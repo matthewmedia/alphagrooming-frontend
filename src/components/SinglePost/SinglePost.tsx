@@ -1,4 +1,4 @@
-
+"use client"
 import Image from "next/image"
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
@@ -8,10 +8,15 @@ import { dataset, projectId } from "@/sanity/env";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
-import urlBuilder from '@sanity/image-url'
-import {getImageDimensions} from '@sanity/asset-utils'
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from "react";
 
+
+const ReactPlayer = dynamic(
+  () => import('react-player').then((mod) => mod.default),
+  { ssr: false } // This will load the component only on client side
+);
 type ImageAsset = {
   _ref: string;
 };
@@ -25,9 +30,12 @@ type ImageValue = {
 function urlFor(source :  SanityImageSource) {
   return builder.image(source)
 }
-//<img src={urlFor(author.image).width(200).url()} />
+function getYouTubeId(url: string) {
+  const urlParts = url.split('/');
+  return urlParts[urlParts.length - 1];
+}
+
 const SampleImageComponent: React.FC<{ value: ImageValue }> = ({ value }) => {
-  const { width, height } = getImageDimensions(value.asset);
   return (
     <img
     src={urlFor(value.asset).width(300).fit('max').auto('format').url() || ''}
@@ -36,7 +44,16 @@ const SampleImageComponent: React.FC<{ value: ImageValue }> = ({ value }) => {
     />
   );
 };
+
+
+
 export default function Post({ post }: { post: SanityDocument }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   if (!post) {
     return <div>Loading...</div>; // or some other placeholder
   }
@@ -54,14 +71,29 @@ export default function Post({ post }: { post: SanityDocument }) {
           alt={mainImage.alt || ''}
         />
       ) : null}
-      {body ? <PortableText value={body} 
+      {body ? <PortableText 
+        value={body} 
         components={{
-          // ...
           types: {
             image: SampleImageComponent,
+            youTube: (body) => {
+              const { value } = body;
+              const { url } = value;
+              const id = getYouTubeId(url);
+              return (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  {isClient ? <ReactPlayer url={url} /> : 'Loading...'}
+                </div>
+              );
+
+            },
+           
           },
         }}
-      /> : null}
+            
+        
+        
+        /> : null}
     </main>
   );
 }
