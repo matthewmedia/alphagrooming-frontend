@@ -8,8 +8,34 @@ import { dataset, projectId } from "@/sanity/env";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
+import urlBuilder from '@sanity/image-url'
+import {getImageDimensions} from '@sanity/asset-utils'
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+type ImageAsset = {
+  _ref: string;
+};
+
+type ImageValue = {
+  asset: ImageAsset;
+  alt?: string;
+};
 
 
+function urlFor(source :  SanityImageSource) {
+  return builder.image(source)
+}
+//<img src={urlFor(author.image).width(200).url()} />
+const SampleImageComponent: React.FC<{ value: ImageValue }> = ({ value }) => {
+  const { width, height } = getImageDimensions(value.asset);
+  return (
+    <img
+    src={urlFor(value.asset).width(300).fit('max').auto('format').url() || ''}
+    alt={value.alt || ' '}
+      loading="lazy"
+    />
+  );
+};
 export default function Post({ post }: { post: SanityDocument }) {
   if (!post) {
     return <div>Loading...</div>; // or some other placeholder
@@ -28,7 +54,14 @@ export default function Post({ post }: { post: SanityDocument }) {
           alt={mainImage.alt || ''}
         />
       ) : null}
-      {body ? <PortableText value={body} /> : null}
+      {body ? <PortableText value={body} 
+        components={{
+          // ...
+          types: {
+            image: SampleImageComponent,
+          },
+        }}
+      /> : null}
     </main>
   );
 }
