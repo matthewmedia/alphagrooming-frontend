@@ -32,7 +32,7 @@
     --primary-font: 'Merriweather', serif;
     --secondary-font: 'MerriweatherSecondary', serif;
     --font-awesome: 'Font Awesome 5 Pro';
-    --primary-color: #D8D8D8;
+    --primary-color: #3EB75E;
     --secondary-color: #FF9500;
     --action-color: #FECC00;
     --grey-dark-key: #000;
@@ -98,6 +98,10 @@
   }
   nav {
     font-family: var(--secondary-font);
+  }
+
+  a {
+    color : var(--primary-color) !important;
   }
   /*--Spacing--*/
   .m-xs-0 {
@@ -2737,6 +2741,14 @@
   h5 a,
   h6 a {
     color: inherit;
+  }
+  @keyframes move-background {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
   }
   a:hover {
     color: var(--primary-color);
@@ -7469,7 +7481,7 @@
     overflow: hidden;
   }
   .axil-img-container.flex-height-container {
-    height: calc(100% - 3rem);
+    height: calc(100% - 323rem);
   }
   @media (max-width: 991px) {
     .axil-img-container.flex-height-container {

@@ -37,14 +37,16 @@ function getYouTubeId(url: string) {
 
 const SampleImageComponent: React.FC<{ value: ImageValue }> = ({ value }) => {
   return (
-    <img
-    src={urlFor(value.asset).width(300).fit('max').auto('format').url() || ''}
-    alt={value.alt || ' '}
-      loading="lazy"
-    />
+    <div className="flex justify-center m-4">
+      <Image
+        src={urlFor(value.asset).width(500).fit('max').auto('format').url() || ''}
+        alt={value.alt || ' '}
+        loading="lazy"
+        className="rounded-lg shadow-lg"
+      />
+    </div>
   );
 };
-
 
 
 export default function Post({ post }: { post: SanityDocument }) {
@@ -81,9 +83,9 @@ export default function Post({ post }: { post: SanityDocument }) {
               const { url } = value;
               const id = getYouTubeId(url);
               return (
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  {isClient ? <ReactPlayer url={url} /> : 'Loading...'}
-                </div>
+                  <div className="flex justify-center items-center m-4">
+                    {isClient ? <ReactPlayer url={url} /> : 'Loading...'}
+                  </div>
               );
 
             },

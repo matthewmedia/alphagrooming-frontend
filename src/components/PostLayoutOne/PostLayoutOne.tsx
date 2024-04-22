@@ -4,6 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { SanityDocument } from "next-sanity";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
+import PostLayoutThirteen from "../PostLayoutBasic/PostLayoutBasic";
 
 
 
@@ -52,6 +53,7 @@ const PostLayoutOne = ({ posts }: { posts: SanityDocument[] }) => {
             </div>
         ))}
         </div>
+        
    
     </>
   );
