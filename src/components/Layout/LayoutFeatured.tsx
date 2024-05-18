@@ -1,7 +1,10 @@
+"use client"
+
 import { SanityDocument } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
+import { usePathname } from 'next/navigation'
 
 interface PostLayoutElevenProps {
     
@@ -11,12 +14,11 @@ interface PostLayoutElevenProps {
     post: SanityDocument
 }
 
-const LayoutFeatured = ({post } : PostLayoutElevenProps ) => {
-	
+const LayoutFeatured = ({ post } : PostLayoutElevenProps ) => {
   return (
     <>
 	<div className="axil-img-container ">
-		<Link href="/">
+		<Link href={`/${post.slug.current}`}>
 			<Image
 			src={urlForImage(post?.mainImage)}
             alt={post.mainImage.alt}
@@ -27,8 +29,11 @@ const LayoutFeatured = ({post } : PostLayoutElevenProps ) => {
 			/>
 		</Link>
 	</div>
+
     <div className="bg-white rounded-lg shadow-lg p-4 ">
+        <Link href={`/${post.slug.current}`}>
         <h3 className="mt-4 text-3xl text-black hover:underline transition duration-300">{post.title}</h3>
+        </Link>
         <Image
          src={'/alpha-grooming-bg-clear.png'}
          alt="Alpha Grooming logo"

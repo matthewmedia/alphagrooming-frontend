@@ -17,17 +17,17 @@ interface Category {
 export default async function Home() {
 
   const initial = await loadQuery<SanityDocument[]>(POSTS_QUERY);
-  const leftcards = await loadQuery<SanityDocument[]>(CATEGORY_QUERY);
-  const leftcard = await loadQuery<SanityDocument[]>(CATEGORIES_QUERY);
+  //const leftcards = await loadQuery<SanityDocument[]>(CATEGORY_QUERY);
+  //const leftcard = await loadQuery<SanityDocument[]>(CATEGORIES_QUERY);
 
 
  
 
 
 
-  const leftCards = initial.data.filter((post) => {
+  /*const leftCards = initial.data.filter((post) => {
     return post.categories && post.categories.some((category: Category) => category.title === "small-card-beards");
-  });
+  });*/
 
 
   

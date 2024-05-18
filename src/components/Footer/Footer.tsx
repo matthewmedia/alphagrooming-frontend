@@ -23,7 +23,7 @@ const Footer = () => {
               {/* End of .brand-logo-container */}
             </div>
             {/* End of .col-md-6 */}
-			<div className="col-md-auto">
+			      <div className="col-md-auto">
               <div className="footer-social-share-wrapper">
                 <div className="footer-social-share">
                   <div className="axil-social-title">Find us here</div>
@@ -31,7 +31,7 @@ const Footer = () => {
                   
                   <li>
                     <a href={"https://twitter.com/alphaGhub"}>
-                        <FaSquareXTwitter  size={35}/>
+                        <FaSquareXTwitter  size={35} color="white"/>
                     </a>
                   </li>
                  
@@ -87,7 +87,7 @@ const Footer = () => {
           </ul>
           {/* End of .footer-bottom-links */}
           <p className="axil-copyright-txt">
-            © {new Date().getFullYear()}. All rights reserved by AlphaGrooming.
+            © {new Date().getFullYear()}. All rights reserved by AlphaGrooming Inc.
           </p>
         </div>
         {/* End of .footer-bottom */}

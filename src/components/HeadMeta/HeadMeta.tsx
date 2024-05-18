@@ -17,8 +17,6 @@ interface HeadMetaProps {
 const HeadMeta = ({ metaDescription , metAlt, metaImage, metaTitle} : HeadMetaProps) => {
     const pathname = usePathname()
 
-    console.log(pathname)
-    console.log(process.env.NEXT_PUBLIC_BASEPATH)
     
     return ( 
      <>
