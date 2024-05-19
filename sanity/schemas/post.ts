@@ -26,10 +26,32 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: 'aiGrade',
+      title: 'AI Grade',
+      type: 'number',
+      readOnly: true,
+    }),
+    defineField({
+      name: 'readTime',
+      title: 'Read Time',
+      type: 'number',
+    }),
+    defineField({
+      title: 'Keywords',
+      name: 'keyword',
+      type: 'array',
+      of: [{type: 'string'}]
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'},
+      to: {type: 'author' , },
+    }),
+    defineField({
+      name : 'schemaMarkup',
+      title: 'Schema Markup',
+      type: 'schemaMarkup',
     }),
     defineField({
       name: 'mainImage',
@@ -56,7 +78,15 @@ export default defineType({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      readOnly: true,
     }),
+    defineField({
+      name : 'updatedAt',
+      title: 'Updated At',
+      type: 'datetime',
+      readOnly: true,
+    }),
+
     defineField({
       name: 'body',
       title: 'Body',

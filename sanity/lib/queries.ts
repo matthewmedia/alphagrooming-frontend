@@ -29,6 +29,20 @@ export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
   },
   metaDescription,
   body,
+  publishedAt,
+  author -> {
+    name,
+    image {
+      asset->{
+        url
+      }
+    }
+  },
+  categories[]->{
+    title
+  },
+  keyword[],
+  schemaMarkup
 }`;
 
 export const LEFT_CARDS_QUERY = `*[_type == "post" && category[].title match "Beard Care"]{

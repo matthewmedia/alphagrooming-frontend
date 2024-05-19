@@ -11,9 +11,9 @@ interface Props {
   to?: string
 }
 
-const Logo = ({  className, to = '/' } : Props) => {
+const Logo = () => {
   return (
-    <Link href={to} className="block">
+    <Link href={'/'}>
       <Image
         src={'/alpha-grooming-bg-clear.png'}
         alt="Alpha Grooming logo"
@@ -22,7 +22,6 @@ const Logo = ({  className, to = '/' } : Props) => {
         className={twMerge(
           classNames(
             'h-40 tablet:h-[100px] object-contain object-left', 
-            className
           )
         )}
       />
