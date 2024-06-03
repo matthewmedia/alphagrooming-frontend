@@ -6,8 +6,7 @@ import { loadQuery } from "@/sanity/lib/store";
 import { POSTS_QUERY, POST_QUERY } from "@/sanity/lib/queries";
 import Post from "@/components/SinglePost/SinglePost";
 import { client } from "@/sanity/lib/client";
-import HeadMeta from "@/components/HeadMeta/HeadMeta";
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import { url } from "inspector";
 import { SchemaMarkup } from "@/components/SchemaMarkup/SchemaMarkup";
  
@@ -31,35 +30,33 @@ export async function generateMetadata(
  
   // fetch data
   const initial = await loadQuery<SanityDocument>(POST_QUERY, params);
+  
 
-
- 
- 
   return {
-    title: initial.data.title,
+    title: initial?.data?.title,
     openGraph: {
       siteName: 'AlphaGrooming',
 
       images: [
       {
-        url: initial.data.mainImage.asset.url,
+        url: initial.data?.mainImage?.asset?.url,
         width: 1600,
         height: 1490,
         alt: initial.data?.mainImage?.alt,
       }
       ],
       type: 'article',
-      authors: [initial.data.author?.name],
-      publishedTime: initial.data.publishedAt,
+      authors: [initial.data?.author?.name],
+      publishedTime: initial?.data?.publishedAt,
       url: `/${params.slug}`,
       locale: 'en_US',
-      tags: initial.data.keywords,
+      tags: initial?.data?.keywords,
     },
-    description: initial.data?.metaDescription,
+    description: initial?.data?.metaDescription,
     alternates: {
       canonical: `/${params.slug}`,
     },
-    keywords: [initial.data?.keywords],
+    keywords: [initial?.data?.keywords],
  
   
 
@@ -81,7 +78,7 @@ export default async function Page({params} : {params: QueryParams}) {
   return  (
     <>
       <Post post={initial.data} />
-      {initial.data.schemaMarkup && <SchemaMarkup schema={initial.data.schemaMarkup} />}
+      {initial?.data?.schemaMarkup && <SchemaMarkup schema={initial?.data?.schemaMarkup} />}
 
     </>
     

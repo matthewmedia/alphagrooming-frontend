@@ -16,7 +16,10 @@ export const POSTS_QUERY = groq`*[_type == "post" && defined(slug)]{
     categories[]->{
       title
     },
-    body
+    publishedAt,
+    author->{
+      name,
+    },
   }`;
 export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
@@ -57,4 +60,4 @@ export const LEFT_CARDS_QUERY = `*[_type == "post" && category[].title match "Be
 
 export const CATEGORIES_QUERY = groq`*[_type == "category"]`;
 
-export const CATEGORY_QUERY = groq`count(*[_type == "post" && categories[].title match "Beard Care"])`;
+export const PRIVACY_POLICY_QUERY = groq`*[_type == "category" && title == "Privacy"]`;

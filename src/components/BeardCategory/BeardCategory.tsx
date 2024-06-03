@@ -1,24 +1,18 @@
-"use client"
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { SanityDocument } from "next-sanity";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
-import { Button } from "react-bootstrap";
-import { useLayout } from "@/hooks/use-layout";
-import React from "react";
 
-const PostLayoutOne = ({ posts }: { posts: SanityDocument[] }) => {
-  const { isMobile } = useLayout();
+const BeardCategory = ({ posts }: { posts: SanityDocument[] }) => {
   return (
     <>
-      <div className="flex flex-col flex-col-reverse	">
+      <div className="flex flex-col">
         {posts.map((post) => (
           <div
-            key={post.slug.current}
+            key={post._id}
             className="border border-custom-green rounded-3xl shadow-2xl bg-white px-4 pt-8 transform transition-transform duration-200 hover:scale-105 w-4/5 h-auto mx-auto m-4 "
           >
-            
             <Link href={post.slug.current}>
               <div className="flex items-start space-x-4">
                 <div className=" rounded-3xl w-1/3 m-4 relative">
@@ -27,12 +21,11 @@ const PostLayoutOne = ({ posts }: { posts: SanityDocument[] }) => {
                     alt={post.mainImage.alt}
                     width={400}
                     height={400}
-                    layout="responsive"
                     placeholder="blur"
                     blurDataURL="/images/placeholder.png"
                     className="rounded-3xl"
                   />
-                  {!isMobile && <Link href={`/beard-care`}>
+                  <Link href={`/beard-care`}>
                     <div className="post-cat-group m-b-xs-10 absolute top-5 left-10 rounded-3xl">
                       <p
                         className={`post-cat cat-btn bg-green-400 rounded-3xl`}
@@ -40,13 +33,13 @@ const PostLayoutOne = ({ posts }: { posts: SanityDocument[] }) => {
                         Beard Care
                       </p>
                     </div>
-                  </Link>}
-
+                  </Link>
                   <div className="flex flex-col sm:flex-row justify-between">
                     <p className="text-left text-black-500 text-1xl sm:text-2xl m-4 font-bold">
                       {post.author?.name}
                     </p>
                     <p className="text-left text-black-500 text-1xl sm:text-2xl m-4 font-bold">
+                      {new Date(post.publishedAt).toDateString()}
                     </p>
                   </div>
                 </div>
@@ -80,4 +73,4 @@ const PostLayoutOne = ({ posts }: { posts: SanityDocument[] }) => {
   );
 };
 
-export default PostLayoutOne;
+export default BeardCategory;

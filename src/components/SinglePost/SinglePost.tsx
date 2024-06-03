@@ -1,20 +1,20 @@
-"use client"
-import Image from "next/image"
+"use client";
+import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityDocument} from "next-sanity";
+import { SanityDocument } from "next-sanity";
 
 import { dataset, projectId } from "@/sanity/env";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
 
 const ReactPlayer = dynamic(
-  () => import('react-player').then((mod) => mod.default),
+  () => import("react-player").then((mod) => mod.default),
   { ssr: false } // This will load the component only on client side
 );
 type ImageAsset = {
@@ -26,12 +26,11 @@ type ImageValue = {
   alt?: string;
 };
 
-
-function urlFor(source :  SanityImageSource) {
-  return builder.image(source)
+function urlFor(source: SanityImageSource) {
+  return builder.image(source);
 }
 function getYouTubeId(url: string) {
-  const urlParts = url.split('/');
+  const urlParts = url.split("/");
   return urlParts[urlParts.length - 1];
 }
 
@@ -39,15 +38,16 @@ const SampleImageComponent: React.FC<{ value: ImageValue }> = ({ value }) => {
   return (
     <div className="flex justify-center m-4">
       <Image
-        src={urlFor(value.asset).width(500).fit('max').auto('format').url() || ''}
-        alt={value.alt || ' '}
+        src={
+          urlFor(value.asset).width(500).fit("max").auto("format").url() || ""
+        }
+        alt={value.alt || " "}
         loading="lazy"
         className="rounded-lg shadow-lg"
       />
     </div>
   );
 };
-
 
 export default function Post({ post }: { post: SanityDocument }) {
   const [isClient, setIsClient] = useState(false);
@@ -63,6 +63,12 @@ export default function Post({ post }: { post: SanityDocument }) {
 
   return (
     <main className="container mx-auto prose prose-lg p-4">
+     
+      <Link href="/beard-care">
+        <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200 bg-green-400 p-4 rounded-lg mt-4 mb-4">
+          Beard Care & Grooming
+        </span>
+      </Link>
       {title ? <h1>{title}</h1> : null}
       {mainImage ? (
         <Image
@@ -70,32 +76,29 @@ export default function Post({ post }: { post: SanityDocument }) {
           src={builder.image(mainImage).url()}
           width={300}
           height={300}
-          alt={mainImage.alt || ''}
+          alt={mainImage.alt || ""}
         />
       ) : null}
-      {body ? <PortableText 
-        value={body} 
-        components={{
-          types: {
-            image: SampleImageComponent,
-            youTube: (body) => {
-              const { value } = body;
-              const { url } = value;
-              const id = getYouTubeId(url);
-              return (
+      {body ? (
+        <PortableText
+          value={body}
+          components={{
+            types: {
+              image: SampleImageComponent,
+              youTube: (body) => {
+                const { value } = body;
+                const { url } = value;
+                const id = getYouTubeId(url);
+                return (
                   <div className="flex justify-center items-center m-4">
-                    {isClient ? <ReactPlayer url={url} /> : 'Loading...'}
+                    {isClient ? <ReactPlayer url={url} /> : "Loading..."}
                   </div>
-              );
-
+                );
+              },
             },
-           
-          },
-        }}
-            
-        
-        
-        /> : null}
+          }}
+        />
+      ) : null}
     </main>
   );
 }

@@ -6,6 +6,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from "@/components/Footer/Footer";
+import { LayoutContextProvider } from "@/contexts/LayoutContextProvider/LayoutContextProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata : Metadata = {
@@ -34,13 +35,9 @@ export const metadata : Metadata = {
       },
     ],
   },
-  metadataBase: new URL('https://alphagrooming.org'),
+  metadataBase: new URL('https://www.alphagrooming.org'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-      'de-DE': '/de-DE',
-    },
   },
   robots: {
     index: true,
@@ -65,13 +62,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-        <body className={inter.className}>
-        <Navigation />
-        <GoogleAnalytics  gaId='G-6WV7PV1X9C'/>
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <LayoutContextProvider>
+      <html lang="en">
+        <body>
+          <Navigation />
+          <GoogleAnalytics  gaId='G-6WV7PV1X9C'/>
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </LayoutContextProvider>
   );
 }

@@ -1,9 +1,25 @@
-import React from "react";
+"use client"
 import Link from "next/link";
-
 import Logo from "../Logo/Logo";
+import React, { useState, useRef} from 'react';
+
 
 const Navbar = () => {
+
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  
+	// Main Menu Toggle 
+
+      
+    
+      // Offcanvas Menu
+
+ 
+    
+
+
   return (
     <>
       <header className="page-header bg-gradient-to-r from-green-400 to-blue-500">
@@ -21,7 +37,7 @@ const Navbar = () => {
                     Home
                   </span>
                 </Link>
-                <Link href="/">
+                <Link href="/beard-care">
                   <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
                     Beard Care & Grooming
                   </span>
@@ -30,10 +46,9 @@ const Navbar = () => {
               <div className="flex space-x-4 font-bold">
                 <Link href="/"><span className="text-white">About</span></Link>
                 <Link href="/"><span className="text-white">Contact</span></Link>
-                <Link href="/"><span className="text-white">Privacy Policy</span></Link>
+                <Link href="/privacy-policy"><span className="text-white">Privacy Policy</span></Link>
               </div>
             </div>
-
           </div>
 
         </nav>
