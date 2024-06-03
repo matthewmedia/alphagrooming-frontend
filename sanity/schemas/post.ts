@@ -78,13 +78,11 @@ export default defineType({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
-      readOnly: true,
     }),
     defineField({
       name : 'updatedAt',
       title: 'Updated At',
       type: 'datetime',
-      readOnly: true,
     }),
 
     defineField({
