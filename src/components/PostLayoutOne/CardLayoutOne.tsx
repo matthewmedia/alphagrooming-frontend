@@ -3,10 +3,14 @@ import Image from "next/image";
 import { SanityDocument } from "next-sanity";
 import { urlForImage } from "@/sanity/lib/image";
 import React from "react";
+import Link from "next/link";
 
 const CardLayoutOne = ({ post}: { post: SanityDocument }) => {
   return (
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
+
+   
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">   
+      <Link href={post.slug.current}>
         <Image
           src={urlForImage(post.mainImage)}
           alt={post.mainImage.alt}
@@ -29,8 +33,10 @@ const CardLayoutOne = ({ post}: { post: SanityDocument }) => {
                 {category  && `#${category}`}
               </span>
             ))}
-          </div>
+          </div> 
+      </Link>
       </div>
+     
       
   );
 };

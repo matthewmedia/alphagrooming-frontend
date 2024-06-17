@@ -23,20 +23,13 @@ const LayoutCards = ({ posts }: { posts: SanityDocument[] }) => {
           </div>
         </Link>
         }
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
+        <div className="grid justify-items-center  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10 ">
           {posts.map((post, _index) => (
             <CardLayoutOne post={post} key={_index} />
           ))}
         </div>
-        <div className="flex justify-center">
-          <Link href={`/beard-care`}>
-            <p className="bg-gradient-to-r from-blue-500 to-green-500 p-10 px-96 flex items-center space-x-2 text-lg font-bold text-white hover:text-green-500 rounded-lg w-full">
-              <span className="font-bold text-3xl">View All</span>
-              <FaArrowRightLong />
-            </p>
-          </Link>
-        </div>
       </div>
+      
     </>
   );
 };
