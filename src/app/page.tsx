@@ -1,12 +1,10 @@
 import Layout from "@/components/Layout/Layout";
 import "../app/globals.css";
 import { FaAlignCenter } from "react-icons/fa";
-import PostLayoutThirteen from "@/components/PostLayoutOne/PostLayoutOne";
+import PostLayoutThirteen from "@/components/PostLayoutOne/CardLayoutOne";
 import HeadMeta from "@/components/HeadMeta/HeadMeta";
 import { loadQuery } from "@/sanity/lib/store";
-import {
-  POSTS_QUERY,
-} from "@/sanity/lib/queries";
+import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { SanityDocument } from "next-sanity";
 
 import PostSectionTwo from "@/components/SectionLayout/SectionLayout";
@@ -14,18 +12,16 @@ import PostLayoutOne from "@/components/SingleLargePost/SingleLargePost";
 import MiniPost from "@/components/MiniPost/MiniPost";
 import { Button } from "react-bootstrap";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
-
+import LayoutCards from "@/components/PostLayoutOne/LayoutHorizontalCards";
+import Logo from "@/components/Logo/Logo";
 
 export default async function Home() {
   const initial = await loadQuery<SanityDocument[]>(POSTS_QUERY);
 
-  // left hand side cards
-  const leftCards = initial.data.slice(0, 6);
-  const rightCards = initial.data.slice(8, 13);
 
-
-
-
+  const postsWithKeywordsAndMetaDescription = initial.data.filter(
+    (post) => post.keyword && post.metaDescription
+  );
 
   return (
     <>
@@ -41,25 +37,27 @@ export default async function Home() {
             <PostSectionTwo posts={initial.data} />
           </div>
         </div>
-          <div className="flex items-center justify-center space-x-8">
+        <div className="flex items-center justify-center space-x-8">
           <FaAlignCenter className="text-6xl text-custom-green " />
-          <h1 className="text-6xl font-bold mb-4 italic text-center">Beard Insights</h1>
+          <h1 className="text-6xl font-bold mb-4 italic text-center">
+            Beard Insights
+          </h1>
+        </div>
+        <div className="flex items-center justify-center space-x-16">
+          <LayoutCards posts={postsWithKeywordsAndMetaDescription} />
+        </div>
+
+        <div className="recent-news-wrapper section-gap flex flex-col sm:flex-row justify-center items-center mx-auto bg-blue-500 px-16 mx-16 rounded-3xl shadow-lg">
+          <div>
+            <h2 className="text-6xl font-bold text-white text-center">
+              Tips, Products, and Habits
+            </h2>
+            <div className="text-center flex items-center justify-center ">
+              <Logo />
+            </div>
           </div>
-        <div className="flex items-center justify-left space-x-16">
-          <PostLayoutThirteen posts={leftCards} />
-          <PostLayoutThirteen posts={rightCards} />
-        </div>
-        <div className="flex items-center justify-center space-x-16 ml-56">
-        <Button className="bg-custom-green text-white font-bold text-2xl m-4 w-full sm:w-4/5 px-4 pt-8 sm:ml-60 text-white"
-        href="/beard-care"
-        >
-          <span className="text-white">Load More</span>
-        </Button>
-        </div>
-        
-        <div className="recent-news-wrapper section-gap flex justify-center ">
           <PostLayoutOne post={initial.data[13]} />
-          <div className="flex flex-col ">
+          <div className="">
             {initial.data.slice(15, 18).map((post) => (
               <MiniPost key={post._id} post={post} />
             ))}

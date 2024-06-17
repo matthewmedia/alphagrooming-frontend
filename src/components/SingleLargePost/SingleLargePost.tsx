@@ -18,7 +18,7 @@ const PostLayoutOne = ({ post }: { post: SanityDocument }) => {
         />
       </Link>
       <div className="mt-4">
-        <h2 className="text-3xl font-bold text-dark-500 text-center">{post.title}</h2>
+        <h2 className="text-3xl font-bold text-white text-center">{post.title}</h2>
       </div>
     </div>
   );

@@ -20,9 +20,9 @@ const MiniPost = ({ post } : { post: SanityDocument }) => {
                 </div>
             </Link>
             <div className="w-full sm:w-3/4">
-                <p className="text-left text-xl sm:text-2xl md:text-3xl font-bold mt-4 sm:mt-0 m-2">{post.title}</p>
-                <p className="text-left text-sm sm:text-md md:text-base text-gray-500 m-2">{new Date(post.publishedAt).toDateString()}</p>
-                <p className="text-left text-sm sm:text-md md:text-base text-gray-500 m-2">{post.author.name}</p>
+                <p className="text-left text-xl sm:text-2xl md:text-3xl font-bold mt-4 sm:mt-0 m-2 text-white">{post.title}</p>
+                <p className="text-left text-sm sm:text-md md:text-base text-white m-2">{new Date(post.publishedAt).toDateString()}</p>
+                <p className="text-left text-sm sm:text-md md:text-base text-white m-2">{post.author.name}</p>
             </div>
         </div>
     );

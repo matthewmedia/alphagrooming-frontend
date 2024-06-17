@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { IoLogoMastodon } from "react-icons/io5";
+import { FaFlipboard } from "react-icons/fa";
+import { FaPinterest } from "react-icons/fa";
+
 
 const Footer = () => {
   return (
@@ -34,7 +38,22 @@ const Footer = () => {
                         <FaSquareXTwitter  size={35} color="white"/>
                     </a>
                   </li>
+                  <li>
+                    <a href={"https://mastodon.social/@alphagrooming"}>
+                        <IoLogoMastodon  size={35} color="white"/>
+                    </a>
+                  </li>
+                  <li>
+                    <a href={"https://flipboard.com/@AlphaGrooming?from=share&utm_source=flipboard&utm_medium=curator_share"}>
+                        <FaFlipboard  size={35} color="red"/>
+                    </a>
+                  </li>
                  
+                  <li>
+                    <a href={"https://pin.it/2GN1acQZq"}>
+                        <FaPinterest  size={35} color="white"/>
+                    </a>
+                  </li>
                   </ul>
                 </div>
               </div>

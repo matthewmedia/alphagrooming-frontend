@@ -20,6 +20,7 @@ export const POSTS_QUERY = groq`*[_type == "post" && defined(slug)]{
     author->{
       name,
     },
+    keyword [],
   }`;
 export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
