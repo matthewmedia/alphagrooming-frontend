@@ -133,14 +133,14 @@ const Navbar = () => {
               <span className="sr-only">Search all icons</span>
               <input
                 type="search"
-                className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
+                className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-10 sm:pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
                 id="search-input"
                 value={searchQuery}
                 placeholder="Type and press enter"
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
               />
-              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8 ">
+              <span className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8">
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                   <path
                     stroke="currentColor"
@@ -244,57 +244,65 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
-          {(showSearch || shouldSearch) && (
-        <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col">
-          <form className="relative">
-            <label
-              htmlFor="search-input"
-              className="text-neutral-500 dark:text-neutral-300"
-            >
-              <span className="sr-only">Search all icons</span>
-              <input
-                type="search"
-                className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
-                id="search-input"
-                value={searchQuery}
-                placeholder="Type and press enter"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-          </form>
-        </div>
-      )}
+          {
+            <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col">
+              <form className="relative">
+                <label
+                  htmlFor="search-input"
+                  className="text-neutral-500 dark:text-neutral-300"
+                >
+                  <span className="sr-only">Search all icons</span>
+                  <input
+                    type="search"
+                    className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-10 sm:pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
+                    id="search-input"
+                    value={searchQuery}
+                    placeholder="Type and press enter"
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                  />
+                  <span className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
+                      ></path>
+                    </svg>
+                  </span>
+                </label>
+              </form>
+            </div>
+          }
           <nav className="flex flex-col space-y-4 mt-8 ">
             <Link href="/" className="mb-8">
               <span className="nav text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
-              🧔🏽‍♂️ Home
+                🧔🏽‍♂️ Home
               </span>
             </Link>
-            <Link href="/beard-care" className="mb-8" style={{marginBottom : "2rem"}}>
+            <Link
+              href="/beard-care"
+              className="mb-8"
+              style={{ marginBottom: "2rem" }}
+            >
               <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
-              🧔🏽‍♂️ Beard Care & Grooming
+                🧔🏽‍♂️ Beard Care & Grooming
               </span>
             </Link>
-            <Link href="/" className="mb-8" style={{marginBottom : "2rem"}}>
-            🧔🏽‍♂️ <span className="text-white font-bold">About</span>
+            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}>
+              🧔🏽‍♂️ <span className="text-white font-bold">About</span>
             </Link>
-            <Link href="/" className="mb-8" style={{marginBottom : "2rem"}}>
-            🧔🏽‍♂️ <span className="text-white font-bold">Contact</span>
+            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}>
+              🧔🏽‍♂️ <span className="text-white font-bold">Contact</span>
             </Link>
-            <Link href="/privacy-policy" className="mb-8" style={{marginBottom : "2rem"}}>
-            🧔🏽‍♂️ <span className="text-white font-bold">Privacy Policy</span>
+            <Link
+              href="/privacy-policy"
+              className="mb-8"
+              style={{ marginBottom: "2rem" }}
+            >
+              🧔🏽‍♂️ <span className="text-white font-bold">Privacy Policy</span>
             </Link>
           </nav>
         </div>
