@@ -28,15 +28,9 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   useEffect(() => {
-    const darkModePreference = localStorage.getItem('theme');
-    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+  
     if (hasMounted) {
-      if (darkModePreference === 'dark' || (!darkModePreference && systemPrefersLight)) {
-        updateTheme(false);
-      } else {
-        updateTheme(true);
-      }
+      
 
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       const handleSystemThemeChange = (e: MediaQueryListEvent) => {
