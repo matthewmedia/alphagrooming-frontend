@@ -7,6 +7,8 @@ import { Inter } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from "@/components/Footer/Footer";
 import { LayoutContextProvider } from "@/contexts/LayoutContextProvider/LayoutContextProvider";
+import { ThemeProvider } from "@/contexts/LayoutContextProvider/ThemeContextProvider";
+import { SearchContextProvider } from "@/contexts/SearchContextProvider/SearchContextProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata : Metadata = {
@@ -62,7 +64,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <ThemeProvider>
+
     <LayoutContextProvider>
+    <SearchContextProvider>
       <html lang="en">
         <body>
           <Navigation />
@@ -71,6 +76,8 @@ export default function RootLayout({
           <Footer />
         </body>
       </html>
+    </SearchContextProvider>
     </LayoutContextProvider>
+    </ThemeProvider>
   );
 }

@@ -62,3 +62,24 @@ export const LEFT_CARDS_QUERY = `*[_type == "post" && category[].title match "Be
 export const CATEGORIES_QUERY = groq`*[_type == "category"]`;
 
 export const PRIVACY_POLICY_QUERY = groq`*[_type == "category" && title == "Privacy"]`;
+
+export const SEARCH_QUERY = groq`*[_type == "post" && title match $searchQuery]{
+  title,
+  slug,
+  mainImage {
+    asset->{
+      _id,
+      url
+    },
+    alt
+  },
+  metaDescription,
+  categories[]->{
+    title
+  },
+  publishedAt,
+  author->{
+    name,
+  },
+  keyword [],
+}`;

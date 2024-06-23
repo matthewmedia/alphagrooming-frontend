@@ -3,13 +3,13 @@ import HeadMeta from "@/components/HeadMeta/HeadMeta";
 import { loadQuery } from "@/sanity/lib/store";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { SanityDocument } from "next-sanity";
-import BeardCategory from "@/components/BeardCategory/BeardCategory";
 
 import Image from "next/image";
 import LayoutCards from "@/components/PostLayoutOne/LayoutHorizontalCards";
 
 export default async function BeardCare() {
   const initial = await loadQuery<SanityDocument[]>(POSTS_QUERY);
+  console.log(initial.data)
 
   return (
     <>

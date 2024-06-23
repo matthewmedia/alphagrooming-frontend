@@ -9,7 +9,7 @@ const CardLayoutOne = ({ post}: { post: SanityDocument }) => {
   return (
 
    
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">   
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-transparent">   
       <Link href={post.slug.current}>
         <Image
           src={urlForImage(post.mainImage)}
