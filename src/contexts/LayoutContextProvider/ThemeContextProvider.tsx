@@ -29,13 +29,13 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const darkModePreference = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     if (hasMounted) {
-      if (darkModePreference === 'dark' || (!darkModePreference && systemPrefersDark)) {
-        updateTheme(true);
-      } else {
+      if (darkModePreference === 'dark' || (!darkModePreference && systemPrefersLight)) {
         updateTheme(false);
+      } else {
+        updateTheme(true);
       }
 
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
