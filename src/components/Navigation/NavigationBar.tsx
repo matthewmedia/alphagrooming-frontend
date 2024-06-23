@@ -124,36 +124,44 @@ const Navbar = () => {
         </nav>
       </header>
       {(showSearch || shouldSearch) && (
-        <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col">
-          <form className="relative">
-            <label
-              htmlFor="search-input"
-              className="text-neutral-500 dark:text-neutral-300"
-            >
-              <span className="sr-only">Search all icons</span>
-              <input
-                type="search"
-                className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-10 sm:pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
-                id="search-input"
-                value={searchQuery}
-                placeholder="Type and press enter"
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-              />
-              <span className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-          </form>
-        </div>
+        <div className="mt-5 mb-5 max-w-lg self-auto mx-auto">
+        <form className="max-w-4xl mx-auto">
+          <label
+            htmlFor="default-search"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+          >
+            Search
+          </label>
+          <div className="relative">
+            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg
+                className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="default-search"
+              className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 max-w-4xl"
+              placeholder="Type and press enter"
+              required
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+          </div>
+        </form>
+      </div>
       )}
       <div
         className={`fixed inset-0 z-50 transform ${
@@ -245,34 +253,42 @@ const Navbar = () => {
             </svg>
           </button>
           {
-            <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col">
-              <form className="relative">
+            <div className="mt-5 ">
+              <form className="max-w-4xl mx-auto">
                 <label
-                  htmlFor="search-input"
-                  className="text-neutral-500 dark:text-neutral-300"
+                  htmlFor="default-search"
+                  className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
                 >
-                  <span className="sr-only">Search all icons</span>
+                  Search
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg
+                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                      />
+                    </svg>
+                  </div>
                   <input
                     type="search"
-                    className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-10 sm:pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
-                    id="search-input"
-                    value={searchQuery}
+                    id="default-search"
+                    className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 max-w-4xl"
                     placeholder="Type and press enter"
+                    required
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
                   />
-                  <span className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8">
-                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                        d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
-                      ></path>
-                    </svg>
-                  </span>
-                </label>
+                </div>
               </form>
             </div>
           }
