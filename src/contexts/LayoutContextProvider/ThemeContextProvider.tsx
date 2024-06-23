@@ -1,48 +1,57 @@
 "use client"
 
-import  React, { createContext, useState, useEffect, PropsWithChildren } from 'react';
-
+import React, { createContext, useState, useEffect, PropsWithChildren, useCallback } from 'react';
 
 interface ThemeContextType {
-    isDarkMode: boolean;
-    toggleDarkMode: () => void;
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-
-export const ThemeContext = React.createContext<ThemeContextType>({
-    isDarkMode: false,
-    toggleDarkMode: () => {}
+export const ThemeContext = createContext<ThemeContextType>({
+  isDarkMode: false,
+  toggleDarkMode: () => {},
 });
 
-export const ThemeProvider = ({ children } : PropsWithChildren) => {
+export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
-  useEffect(() => {
-    const darkModePreference = localStorage.getItem('theme');
-    if (
-      darkModePreference === 'dark' ||
-      (!darkModePreference && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      setIsDarkMode(true);
+  const updateTheme = useCallback((darkMode: boolean) => {
+    setIsDarkMode(darkMode);
+    if (darkMode) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      setIsDarkMode(false);
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, []);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      if (newMode) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
+  useEffect(() => {
+    const darkModePreference = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (hasMounted) {
+      if (darkModePreference === 'dark' || (!darkModePreference && systemPrefersDark)) {
+        updateTheme(true);
       } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+        updateTheme(false);
       }
-      return newMode;
-    });
+
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+        updateTheme(e.matches);
+      };
+
+      mediaQuery.addEventListener('change', handleSystemThemeChange);
+      return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    } else {
+      setHasMounted(true);
+    }
+  }, [hasMounted, updateTheme]);
+
+  const toggleDarkMode = () => {
+    updateTheme(!isDarkMode);
   };
 
   return (
@@ -51,3 +60,4 @@ export const ThemeProvider = ({ children } : PropsWithChildren) => {
     </ThemeContext.Provider>
   );
 };
+
