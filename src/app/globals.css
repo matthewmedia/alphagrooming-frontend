@@ -34,6 +34,10 @@
       @apply bg-gray-900 text-white;
     }
   }
+
+  .left-1-1rem {
+    left: 0rem;
+}
   
   @layer components {
     .dark .custom-bg-gradient {

@@ -1,40 +1,35 @@
 "use client";
 import Link from "next/link";
 import Logo from "../Logo/Logo";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { ThemeContext } from "@/contexts/LayoutContextProvider/ThemeContextProvider";
 import { SearchContext } from "@/contexts/SearchContextProvider/SearchContextProvider";
-import { useSearchParams } from 'next/navigation'
-
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { IoLogoMastodon } from "react-icons/io5";
+import { FaFlipboard } from "react-icons/fa";
+import { FaPinterest } from "react-icons/fa";
 
 const Navbar = () => {
-  const { searchQuery, setSearchQuery , shouldSearch } = useContext(SearchContext);
+  const { searchQuery, setSearchQuery, shouldSearch } =
+    useContext(SearchContext);
   const [showSearch, setShowSearch] = useState(false);
 
-
-
-  const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { toggleDarkMode } = useContext(ThemeContext);
 
- 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       event.preventDefault(); // Prevent form submission
       window.location.href = `/search?query=${encodeURIComponent(searchQuery)}`;
-
     }
   };
-
-
-  
 
   return (
     <>
@@ -47,7 +42,6 @@ const Navbar = () => {
             <p className="text-base text-white uppercase font-bold italic hidden md:block">
               Your one-stop diary for all things beard!
             </p>
-
             <div className="main-nav-wrapper hidden md:flex justify-between items-center w-full">
               <div className="main-navigation text-black flex space-x-4 border-b-4 border-white-500 py-2">
                 <Link href="/">
@@ -70,11 +64,10 @@ const Navbar = () => {
                   <span className="text-white font-bold">Privacy Policy</span>
                 </Link>
               </div>
-
               <div className="flex space-x-8 items-center">
-                <button 
-                className="self-center text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none flex items-center justify-center bg-neutral-100 dark:bg-neutral-800"
-                onClick={() => setShowSearch(!showSearch)}
+                <button
+                  className="self-center text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none flex items-center justify-center bg-neutral-100 dark:bg-neutral-800"
+                  onClick={() => setShowSearch(!showSearch)}
                 >
                   <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path
@@ -110,41 +103,58 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
+            {/* Toggle Button for Mobile Navbar */}
+            <button className="md:hidden text-white" onClick={toggleSidebar}>
+              <svg
+                className="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
           </div>
         </nav>
       </header>
-      {(showSearch || shouldSearch ) && <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col 	">
-        <form className="relative">
-          <label
-            htmlFor="search-input"
-            className="text-neutral-500 dark:text-neutral-300"
-          >
-            <span className="sr-only">Search all icons</span>
-            <input
-              type="search"
-              className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500	"
-              id="search-input"
-              value={searchQuery}
-              placeholder="Type and press enter"
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-
-              
-            />
-            <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
-                ></path>
-              </svg>
-            </span>
-          </label>
-        </form>
-      </div>}
+      {(showSearch || shouldSearch) && (
+        <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col">
+          <form className="relative">
+            <label
+              htmlFor="search-input"
+              className="text-neutral-500 dark:text-neutral-300"
+            >
+              <span className="sr-only">Search all icons</span>
+              <input
+                type="search"
+                className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500"
+                id="search-input"
+                value={searchQuery}
+                placeholder="Type and press enter"
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+              />
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8 left-1-1rem">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
+                  ></path>
+                </svg>
+              </span>
+            </label>
+          </form>
+        </div>
+      )}
       <div
         className={`fixed inset-0 z-50 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -162,7 +172,7 @@ const Navbar = () => {
               onClick={toggleSidebar}
             >
               <svg
-                className="w-6 h-6"
+                className="w-10 h-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -176,6 +186,41 @@ const Navbar = () => {
                 ></path>
               </svg>
             </button>
+          </div>
+          <div className="col-md-auto">
+            <div className="footer-social-share-wrapper">
+              <div className="footer-social-share">
+                <div className="axil-social-title">Find us here</div>
+                <ul className="social-share social-share__with-bg">
+                  <li>
+                    <a href={"https://twitter.com/alphaGhub"}>
+                      <FaSquareXTwitter size={35} color="white" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={"https://mastodon.social/@alphagrooming"}>
+                      <IoLogoMastodon size={35} color="white" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={
+                        "https://flipboard.com/@AlphaGrooming?from=share&utm_source=flipboard&utm_medium=curator_share"
+                      }
+                    >
+                      <FaFlipboard size={35} color="red" />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href={"https://pin.it/2GN1acQZq"}>
+                      <FaPinterest size={35} color="white" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {/* End of .footer-social-share-wrapper */}
           </div>
           <button
             onClick={toggleDarkMode}
@@ -199,25 +244,58 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
-          <nav className="flex flex-col space-y-4 mt-8">
-            <Link href="/">
+          {
+            <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col 	">
+              <form className="relative">
+                <label
+                  htmlFor="search-input"
+                  className="text-neutral-500 dark:text-neutral-300"
+                >
+                  <span className="sr-only">Search all icons</span>
+                  <input
+                    type="search"
+                    className="block w-full border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200/50 bg-white dark:border-neutral-500 dark:focus:ring-primary-500/30 dark:bg-neutral-900 rounded-full text-md font-normal pl-16 py-3 pr-5 md:pl-20 md:py-5 md:pr-5 lg:pl-24 shadow-lg border border-lime-500	"
+                    id="search-input"
+                    value={searchQuery}
+                    placeholder="Type and press enter"
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                  />
+                  <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl md:left-6 lg:left-8 left-1-1rem">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
+                      ></path>
+                    </svg>
+                  </span>
+                </label>
+              </form>
+              
+            </div>
+          }
+          <nav className="flex flex-col space-y-4 mt-8 ">
+            <Link href="/" className="mb-8">
               <span className="nav text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
-                Home
+              🧔🏽‍♂️ Home
               </span>
             </Link>
-            <Link href="/beard-care">
+            <Link href="/beard-care" className="mb-8" style={{marginBottom : "2rem"}}>
               <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
-                Beard Care & Grooming
+              🧔🏽‍♂️ Beard Care & Grooming
               </span>
             </Link>
-            <Link href="/">
-              <span className="text-white font-bold">About</span>
+            <Link href="/" className="mb-8" style={{marginBottom : "2rem"}}>
+            🧔🏽‍♂️ <span className="text-white font-bold">About</span>
             </Link>
-            <Link href="/">
-              <span className="text-white font-bold">Contact</span>
+            <Link href="/" className="mb-8" style={{marginBottom : "2rem"}}>
+            🧔🏽‍♂️ <span className="text-white font-bold">Contact</span>
             </Link>
-            <Link href="/privacy-policy">
-              <span className="text-white font-bold">Privacy Policy</span>
+            <Link href="/privacy-policy" className="mb-8" style={{marginBottom : "2rem"}}>
+            🧔🏽‍♂️ <span className="text-white font-bold">Privacy Policy</span>
             </Link>
           </nav>
         </div>
