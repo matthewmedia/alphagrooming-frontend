@@ -8,10 +8,8 @@ import { useSearchParams } from 'next/navigation'
 
 
 const Navbar = () => {
-  const { searchQuery, setSearchQuery, setShouldSearch } = useContext(SearchContext);
+  const { searchQuery, setSearchQuery , shouldSearch } = useContext(SearchContext);
   const [showSearch, setShowSearch] = useState(false);
-  const searchParams = useSearchParams()
-  const query = searchParams?.get('query');
 
 
 
@@ -115,7 +113,7 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
-      {(showSearch || query && query.length > 0) && <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col 	">
+      {(showSearch || shouldSearch ) && <div className="max-w-5xl mx-auto mt-5 lg:mt-0 flex flex-col 	">
         <form className="relative">
           <label
             htmlFor="search-input"

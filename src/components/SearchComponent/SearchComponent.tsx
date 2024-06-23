@@ -4,7 +4,7 @@ import HeadMeta from "@/components/HeadMeta/HeadMeta";
 import { SanityDocument } from "next-sanity";
 import LayoutCards from "@/components/PostLayoutOne/LayoutHorizontalCards";
 import { SearchContext } from "@/contexts/SearchContextProvider/SearchContextProvider";
-import React, {  useEffect} from "react";
+import React, {  use, useContext, useEffect} from "react";
 import { useRouter } from 'next/navigation';
 import { usePathname, useSearchParams } from 'next/navigation'
 
@@ -16,8 +16,14 @@ export default function BeardCareSearch({
   posts: SanityDocument[];
 }) {
  
+  const { searchQuery, setSearchQuery, setShouldSearch, shouldSearch } = useContext(SearchContext);
+
   const searchParams = useSearchParams()
   const query = searchParams?.get('query');
+
+  useEffect(() => {
+    setShouldSearch(true);
+  },[shouldSearch])
    
  
 
