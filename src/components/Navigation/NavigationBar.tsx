@@ -54,7 +54,7 @@ const Navbar = () => {
                     Beard Care & Grooming
                   </span>
                 </Link>
-                <Link href="/">
+                <Link href="/about">
                   <span className="text-white font-bold">About</span>
                 </Link>
                 <Link href="/">
@@ -311,7 +311,7 @@ const Navbar = () => {
                 🧔🏽‍♂️ Beard Care & Grooming
               </span>
             </Link>
-            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}               onClick={toggleSidebar}
+            <Link href="/about" className="mb-8" style={{ marginBottom: "2rem" }}               onClick={toggleSidebar}
 >
               🧔🏽‍♂️ <span className="text-white font-bold">About</span>
             </Link>

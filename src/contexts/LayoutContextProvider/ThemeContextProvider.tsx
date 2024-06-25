@@ -28,6 +28,21 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      if (storedTheme === 'dark') {
+        updateTheme(true);
+      }
+      else {
+        updateTheme(false);
+      }
+    } 
+
+    //setHasMounted(true);
+  }, [updateTheme]);
+
+
+  useEffect(() => {
   
     if (hasMounted) {
       
