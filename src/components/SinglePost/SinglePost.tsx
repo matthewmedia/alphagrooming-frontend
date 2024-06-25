@@ -100,6 +100,8 @@ export default function Post({ post }: { post: SanityDocument }) {
          
               normal : ({children}) => <p className="text-black-body">{children}</p>, 
               h2 : ({children}) => <h2 className="text-black-body">{children}</h2>,
+              h3 : ({children}) => <h3 className="text-black-body">{children}</h3>,
+
 
 
 
@@ -109,7 +111,7 @@ export default function Post({ post }: { post: SanityDocument }) {
             },
             listItem: {
               // Ex. 1: customizing common list types
-              bullet: ({children}) => <li style={{listStyleType: 'none'}} className="m-2">✅  {children}</li>,
+              bullet: ({children}) => <li style={{listStyleType: 'none'}} className="m-2 text-black-body">✅  {children}</li>,
           
               // Ex. 2: rendering custom list items
               checkmarks: ({children}) => <li className="m-2">✅ {children}</li>,
