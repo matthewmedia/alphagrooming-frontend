@@ -45,7 +45,10 @@ const SampleImageComponent: React.FC<{ value: ImageValue }> = ({ value }) => {
         alt={value.alt || " "}
         loading="lazy"
         className="rounded-lg shadow-lg"
+        width={300}
+        height={300}
       />
+
     </div>
   );
 };
@@ -106,7 +109,7 @@ export default function Post({ post }: { post: SanityDocument }) {
             },
             listItem: {
               // Ex. 1: customizing common list types
-              bullet: ({children}) => <li style={{listStyleType: 'disclosure-closed'}} className="m-2">✅  {children}</li>,
+              bullet: ({children}) => <li style={{listStyleType: 'none'}} className="m-2">✅  {children}</li>,
           
               // Ex. 2: rendering custom list items
               checkmarks: ({children}) => <li className="m-2">✅ {children}</li>,
