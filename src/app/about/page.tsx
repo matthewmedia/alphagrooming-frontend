@@ -80,7 +80,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-      <div className="team-section bg-gradient-to-r from-blue-500 to-green-400 dark:from-black dark:to-gray-800 py-12 px-12 mt-8">
+      <div className="team-section bg-gradient-to-r from-blue-500 to-green-400 dark:from-black dark:to-gray-800 py-12 px-12 mt-8 rounded-lg shadow-lg">
   <div className="container mx-auto">
     <h2 className="text-7xl font-bold text-center mb-8 about-us-heading">Meet Our Team</h2>
     <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
