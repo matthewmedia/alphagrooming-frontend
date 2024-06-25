@@ -65,6 +65,10 @@
     .dark .bg-green-500 {
       background-color: #000000;
     }
+
+    .dark .text-black-body {
+      color: #fff;
+    }
   }
 
   /*--Custom Variables--*/

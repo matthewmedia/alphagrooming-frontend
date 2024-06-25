@@ -293,7 +293,10 @@ const Navbar = () => {
             </div>
           }
           <nav className="flex flex-col space-y-4 mt-8 ">
-            <Link href="/" className="mb-8">
+            <Link href="/" className="mb-8"
+                          onClick={toggleSidebar}
+
+            >
               <span className="nav text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
                 🧔🏽‍♂️ Home
               </span>
@@ -302,21 +305,26 @@ const Navbar = () => {
               href="/beard-care"
               className="mb-8"
               style={{ marginBottom: "2rem" }}
+              onClick={toggleSidebar}
             >
               <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
                 🧔🏽‍♂️ Beard Care & Grooming
               </span>
             </Link>
-            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}>
+            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}               onClick={toggleSidebar}
+>
               🧔🏽‍♂️ <span className="text-white font-bold">About</span>
             </Link>
-            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}>
+            <Link href="/" className="mb-8" style={{ marginBottom: "2rem" }}               onClick={toggleSidebar}
+>
               🧔🏽‍♂️ <span className="text-white font-bold">Contact</span>
             </Link>
             <Link
               href="/privacy-policy"
               className="mb-8"
               style={{ marginBottom: "2rem" }}
+              onClick={toggleSidebar}
+
             >
               🧔🏽‍♂️ <span className="text-white font-bold">Privacy Policy</span>
             </Link>

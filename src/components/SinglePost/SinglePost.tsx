@@ -12,6 +12,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import PortableTextTypeComponent from "@sanity/portable-text-editor";
 
 const ReactPlayer = dynamic(
   () => import("react-player").then((mod) => mod.default),
@@ -60,6 +61,8 @@ export default function Post({ post }: { post: SanityDocument }) {
     return <div>Loading...</div>; // or some other placeholder
   }
   const { title, mainImage, body } = post;
+  console.log(body) 
+
 
   return (
     <main className="container mx-auto prose prose-lg p-4">
@@ -69,7 +72,7 @@ export default function Post({ post }: { post: SanityDocument }) {
           Beard Care & Grooming
         </span>
       </Link>
-      {title ? <h1>{title}</h1> : null}
+      {title ? <h1 className="text-black-body">{title}</h1> : null}
       {mainImage ? (
         <Image
           className="float-left m-0 w-1/3 mr-4 rounded-lg"
@@ -79,10 +82,38 @@ export default function Post({ post }: { post: SanityDocument }) {
           alt={mainImage.alt || ""}
         />
       ) : null}
+
+      
       {body ? (
         <PortableText
-          value={body}
+          value={body
+          }
+       
           components={{
+            
+            block: {
+              // Ex. 1: customizing common block types
+             
+         
+              normal : ({children}) => <p className="text-black-body">{children}</p>, 
+              h2 : ({children}) => <h2 className="text-black-body">{children}</h2>,
+
+
+
+            },
+            marks: {
+              p: ({ children }) => <p className="your-custom-class">{children}</p>,
+            },
+            listItem: {
+              // Ex. 1: customizing common list types
+              bullet: ({children}) => <li style={{listStyleType: 'disclosure-closed'}} className="m-2">✅  {children}</li>,
+          
+              // Ex. 2: rendering custom list items
+              checkmarks: ({children}) => <li className="m-2">✅ {children}</li>,
+              h2 : ({children}) => <h2 className="text-2xl text-green">{children}</h2>, 
+              p: ({children}) => <p className="text-2xl text-green">{children}</p>,
+              text : ({children}) => <p className="text-2xl text-green">{children}</p>,
+            },
             types: {
               image: SampleImageComponent,
               youTube: (body) => {
@@ -94,7 +125,7 @@ export default function Post({ post }: { post: SanityDocument }) {
                     {isClient ? <ReactPlayer url={url} /> : "Loading..."}
                   </div>
                 );
-              },
+              }
             },
           }}
         />
