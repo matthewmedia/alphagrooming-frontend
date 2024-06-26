@@ -8,10 +8,14 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoLogoMastodon } from "react-icons/io5";
 import { FaFlipboard } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
+import { IoMoonOutline } from "react-icons/io5";
+
 
 const Navbar = () => {
   const { searchQuery, setSearchQuery, shouldSearch } =
     useContext(SearchContext);
+
+  const { isDarkMode } = useContext(ThemeContext);
   const [showSearch, setShowSearch] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +73,7 @@ const Navbar = () => {
                   className="self-center text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none flex items-center justify-center bg-neutral-100 dark:bg-neutral-800"
                   onClick={() => setShowSearch(!showSearch)}
                 >
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  {<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path
                       stroke="currentColor"
                       strokeLinecap="round"
@@ -77,14 +81,15 @@ const Navbar = () => {
                       strokeWidth="1.5"
                       d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"
                     ></path>
-                  </svg>
+                  </svg>}
+
                 </button>
                 <button
                   onClick={toggleDarkMode}
                   className="self-center text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none flex items-center justify-center bg-neutral-100 dark:bg-neutral-800"
                 >
                   <span className="sr-only">Enable dark mode</span>
-                  <svg
+                  {!isDarkMode && <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -99,12 +104,38 @@ const Navbar = () => {
                       strokeLinejoin="round"
                       d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
                     ></path>
-                  </svg>
+                  </svg>}
+                  {isDarkMode && <IoMoonOutline size={19} color="white" />}
+
                 </button>
               </div>
             </div>
             {/* Toggle Button for Mobile Navbar */}
-            <button className="md:hidden text-white" onClick={toggleSidebar}>
+            <button
+                  onClick={toggleDarkMode}
+                  className="md:hidden  text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none flex items-center justify-center bg-neutral-100 dark:bg-neutral-800"
+                >
+                  <span className="sr-only">Enable dark mode</span>
+                  {!isDarkMode && <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="w-7 h-7"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                    ></path>
+                  </svg>}
+                  {isDarkMode && <IoMoonOutline size={35} color="white" />}
+                </button>
+            
+            <button className="md:hidden text-white -ml-56" onClick={toggleSidebar}>
               <svg
                 className="w-10 h-10"
                 fill="none"
@@ -120,6 +151,7 @@ const Navbar = () => {
                 ></path>
               </svg>
             </button>
+
           </div>
         </nav>
       </header>

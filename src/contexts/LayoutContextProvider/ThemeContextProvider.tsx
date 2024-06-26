@@ -44,8 +44,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
   
-    if (hasMounted) {
-      
+   
 
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       const handleSystemThemeChange = (e: MediaQueryListEvent) => {
@@ -54,9 +53,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
 
       mediaQuery.addEventListener('change', handleSystemThemeChange);
       return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
-    } else {
-      setHasMounted(true);
-    }
+    
   }, [hasMounted, updateTheme]);
 
   const toggleDarkMode = () => {

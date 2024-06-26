@@ -20,7 +20,7 @@ const AboutPage = () => {
             <p className="text-3xl leading-relaxed text-white">
             As aforementioned, the early days of establishment date back to early 2023. 
             We created this platform to not only improve the appearance and boost the confidence of men in today&apos;s society, 
-            but we also want to eradicate the perpetually stigma revolving around men who take grooming seriously, 
+            but we also want to alleviate the perpetual stigma revolving around men who take grooming seriously, 
             we want you to show the world that self-care can be ALPHA. What makes us different from most websites today is that we&apos;re not creating content that we ourselves don&apos;t live by, 
             it&apos;s the complete opposite in fact, what keeps the heart of this platform beating is the mere fact that we live what we teach, that&apos;s what started this all. 
             Two brothers trying to level up their game decided to share all the tips, tricks, failures and victories they faced along their journey combined with a mixture of  meticulous research to brew up what you see today 
@@ -40,7 +40,7 @@ const AboutPage = () => {
               </Link>
             </p>
           </div>
-          <div className="md:w-1/3 grid grid-cols-2 grid-rows-2 gap-4">
+          <div className="md:w-1/3 grid grid-cols-2 grid-rows-2 gap-4 ">
             <div>
               <Image
                 src="/about1.avif"
