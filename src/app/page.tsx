@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <>
       <ProgressBar color={"#33cc99"} />
-
+     
       <HeadMeta />
       <Layout style={{ backgroundImage: `url('/background.png')` }}>
         <div

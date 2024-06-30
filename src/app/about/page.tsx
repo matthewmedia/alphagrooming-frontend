@@ -44,7 +44,7 @@ const AboutPage = () => {
             <div>
               <Image
                 src="/about1.avif"
-                alt="About Us 1"
+                alt="About Us "
                 width={250}
                 height={250}
                 className="rounded-lg shadow-lg"
