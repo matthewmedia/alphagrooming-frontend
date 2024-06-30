@@ -46,7 +46,7 @@ const Navbar = () => {
               <Logo />
             </div>
             <p className="text-base text-white uppercase font-bold italic hidden md:block">
-              Your one-stop diary for all things beard!
+              Your one-stop diary for all things grooming!
             </p>
             <div className="main-nav-wrapper hidden md:flex justify-between items-center w-full">
               <div className="main-navigation text-black flex space-x-4 border-b-4 border-white-500 py-2">
