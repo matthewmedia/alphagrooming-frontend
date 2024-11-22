@@ -97,7 +97,7 @@ const AboutPage = () => {
       </div>
       <div className="team-member text-center transform transition-all duration-500 hover:scale-110 hover:opacity-100 hover:p-8">
         <Image
-          src="/Founder-and-engineer.png"
+          src="/founder.png"
           alt="Founder and Software Engineer"
           width={500}
           height={500}
