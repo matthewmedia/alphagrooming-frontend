@@ -9,7 +9,7 @@ const MiniPost = ({ post } : { post: SanityDocument }) => {
             <Link href={post.slug.current}>
                 <div className="block relative rounded-3xl overflow-hidden">
                     <Image
-                        src={urlForImage(post.mainImage)}
+                        src={urlForImage(post.mainImage) || "/images/placeholder.png"}
                         alt={post.mainImage.alt}
                         width={240}
                         height={240}

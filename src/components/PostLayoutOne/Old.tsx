@@ -23,7 +23,7 @@ const PostLayoutOne = ({ posts }: { posts: SanityDocument[] }) => {
             <Link href={post.slug.current}>
                 <div className="border border-custom-green rounded-3xl w-full">
                     <Image
-                        src={urlForImage(post.mainImage)}
+                        src={urlForImage(post.mainImage) || "/images/placeholder.png"}
                         alt={post.mainImage.alt}
                         layout="responsive"
                         width={100}

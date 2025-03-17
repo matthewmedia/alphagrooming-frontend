@@ -8,7 +8,7 @@ const PostLayoutOne = ({ post }: { post: SanityDocument }) => {
     <div className="mx-auto sm:w-full md:w-3/4 lg:w-1/2">
       <Link href={post.slug.current}>
         <Image
-          src={urlForImage(post.mainImage)}
+          src={urlForImage(post.mainImage) || "/images/placeholder.png"}
           alt={post.mainImage.alt}
           width={840}
           height={840}
