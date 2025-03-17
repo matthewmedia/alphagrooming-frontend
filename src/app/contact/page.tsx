@@ -33,7 +33,7 @@ const AboutPage = () => {
                 <p className="text-white">
                   For Partnerships and Collaborations, we are excited to explore
                   potential collaborative opportunities . We firmly believe that
-                  collaboration fuels innovation. If you're interested in
+                  collaboration fuels innovation. If you&apos;re interested in
                   partnering with us please feel free to reach out to us at
                   &nbsp;
                   <a

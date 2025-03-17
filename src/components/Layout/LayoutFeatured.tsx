@@ -20,7 +20,7 @@ const LayoutFeatured = ({ post } : PostLayoutElevenProps ) => {
 	<div className="axil-img-container ">
 		<Link href={`/${post.slug.current}`}>
 			<Image
-			src={urlForImage(post?.mainImage)}
+			src={urlForImage(post?.mainImage) || "/images/placeholder.png"}
             alt={post.mainImage.alt}
 			width={250}
 			height={250}
