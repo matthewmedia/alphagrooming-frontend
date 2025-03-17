@@ -14,6 +14,7 @@ import { Button } from "react-bootstrap";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import LayoutCards from "@/components/PostLayoutOne/LayoutHorizontalCards";
 import Logo from "@/components/Logo/Logo";
+import { GiPerfumeBottle } from "react-icons/gi";
 
 export default async function Home() {
   const initial = await loadQuery<SanityDocument[]>(POSTS_QUERY);
@@ -22,6 +23,18 @@ export default async function Home() {
   const postsWithKeywordsAndMetaDescription = initial.data.filter(
     (post) => post.keyword && post.metaDescription
   );
+  const removeArchivedPosts = postsWithKeywordsAndMetaDescription.filter(
+    (post) => !(post.keyword.includes("archived"))
+  );
+  const sanitzedPosts = initial.data.filter(
+    (post) =>!(post?.keyword?.includes("archived"))
+  );
+
+  const removeArdchivedPosts = postsWithKeywordsAndMetaDescription.filter(
+    (post) => console.log('here ',post.keyword)
+  );
+  // If they keyword
+
 
   return (
     <>
@@ -34,20 +47,22 @@ export default async function Home() {
           style={{ backgroundImage: `url('/shaving-brush-bg.jpeg')` }}
         >
           <div className="bg-green-400 border rounded-3xl shadow-lg p-4">
-            <PostSectionTwo posts={initial.data} />
+            <PostSectionTwo posts={sanitzedPosts} />
           </div>
         </div>
         <div className="flex items-center justify-center space-x-8">
-          <FaAlignCenter className="text-6xl text-custom-green " />
+        <GiPerfumeBottle className="text-pink-300 animate-bounce h-14 w-14" />
+
           <h1 className="text-6xl font-bold mb-4 italic text-center">
-            Beard Insights
+
+          Fragrance & Perfume
           </h1>
         </div>
         <div className="flex items-center justify-center space-x-16">
-          <LayoutCards posts={postsWithKeywordsAndMetaDescription} />
+          <LayoutCards posts={removeArchivedPosts} />
         </div>
 
-        <div className="recent-news-wrapper section-gap flex flex-col sm:flex-row justify-center items-center mx-auto bg-blue-500 px-16 mx-16 rounded-3xl shadow-lg">
+        {/* <div className="recent-news-wrapper section-gap flex flex-col sm:flex-row justify-center items-center mx-auto bg-blue-500 px-16 mx-16 rounded-3xl shadow-lg">
           <div>
             <h2 className="text-6xl font-bold text-white text-center">
               Tips, Products, and Habits
@@ -62,7 +77,7 @@ export default async function Home() {
               <MiniPost key={post._id} post={post} />
             ))}
           </div>
-        </div>
+        </div> */}
       </Layout>
     </>
   );

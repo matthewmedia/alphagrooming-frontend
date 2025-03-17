@@ -49,7 +49,7 @@ export const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{
   schemaMarkup
 }`;
 
-export const LEFT_CARDS_QUERY = `*[_type == "post" && category[].title match "Beard Care"]{
+export const LEFT_CARDS_QUERY = `*[_type == "post" && category[].title match "Fragrance & Perfume"]{
     title,
     slug,
     mainImage,

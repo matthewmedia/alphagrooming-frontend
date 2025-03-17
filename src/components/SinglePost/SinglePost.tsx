@@ -72,7 +72,7 @@ export default function Post({ post }: { post: SanityDocument }) {
      
       <Link href="/beard-care">
         <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200 bg-green-400 p-4 rounded-lg mt-4 mb-4">
-          Beard Care & Grooming
+        Fragrance & Perfume
         </span>
       </Link>
       {title ? <h1 className="text-black-body">{title}</h1> : null}

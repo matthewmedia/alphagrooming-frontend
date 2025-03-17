@@ -57,7 +57,7 @@ const Navbar = () => {
                 </Link>
                 <Link href="/beard-care">
                   <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
-                    Beard Care & Grooming
+                  Fragrance & Perfume
                   </span>
                 </Link>
                 <Link href="/about">
@@ -344,7 +344,7 @@ const Navbar = () => {
               onClick={toggleSidebar}
             >
               <span className="text-white font-bold transition duration-500 ease-in-out transform hover:scale-110 hover:text-green-200">
-                🧔🏽‍♂️ Beard Care & Grooming
+                🧔🏽‍♂️ Fragrance & Perfume
               </span>
             </Link>
             <Link href="/about" className="mb-8" style={{ marginBottom: "2rem" }}               onClick={toggleSidebar}

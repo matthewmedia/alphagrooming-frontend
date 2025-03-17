@@ -11,15 +11,15 @@ const CardLayoutOne = ({ post}: { post: SanityDocument }) => {
    
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-transparent">   
       <Link href={post.slug.current}>
-        <Image
-          src={urlForImage(post.mainImage)}
+        {post?.mainImage && <Image
+          src={urlForImage(post?.mainImage) || "/images/placeholder.png"}
           alt={post.mainImage.alt}
           width={800}
           height={800}
           placeholder="blur"
           blurDataURL="/images/placeholder.png"
           className="rounded-3xl"
-          /> 
+          /> }
    
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{post.title}</div>

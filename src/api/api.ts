@@ -8,7 +8,10 @@ import { SanityDocument } from "next-sanity";
 
 export async function getSlugs() {
     const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY)
-    const slugs = posts.map((post) => post.slug.current)
+    const sanitizedPosts = posts.filter(
+        (post) => !(post?.keyword?.includes("archived"))
+    );
+    const slugs = sanitizedPosts.map((post) => post.slug.current)
 
 
     return slugs

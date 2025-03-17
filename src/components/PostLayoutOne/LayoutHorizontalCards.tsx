@@ -5,6 +5,7 @@ import { SanityDocument } from "next-sanity";
 import Link from "next/link";
 import React from "react";
 import CardLayoutOne from "./CardLayoutOne";
+import { GiPerfumeBottle } from "react-icons/gi"; // Import the perfume bottle icon
 
 const LayoutCards = ({
   posts,
@@ -23,9 +24,9 @@ const LayoutCards = ({
                 className={` p-6 bg-green-400 rounded-3xl flex items-center space-x-2 underline decoration-dotted underline-offset-8 decoration-white`}
               >
                 <span className="text-white text-3xl font-bold">
-                  Beard Care
+                Fragrance & Perfume
                 </span>
-                <FaStar className="text-yellow-400 animate-bounce" />
+                <GiPerfumeBottle className="text-pink-300 animate-bounce" />
               </div>
             </div>
           </Link>

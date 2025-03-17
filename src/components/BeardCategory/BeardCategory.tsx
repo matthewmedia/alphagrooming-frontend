@@ -17,7 +17,7 @@ const BeardCategory = ({ posts }: { posts: SanityDocument[] }) => {
               <div className="flex items-start space-x-4">
                 <div className=" rounded-3xl w-1/3 m-4 relative">
                   <Image
-                    src={urlForImage(post.mainImage)}
+                    src={urlForImage(post.mainImage) || "/images/placeholder.png"}
                     alt={post.mainImage.alt}
                     width={400}
                     height={400}
@@ -30,7 +30,7 @@ const BeardCategory = ({ posts }: { posts: SanityDocument[] }) => {
                       <p
                         className={`post-cat cat-btn bg-green-400 rounded-3xl`}
                       >
-                        Beard Care
+                        Fragrance & Perfume
                       </p>
                     </div>
                   </Link>

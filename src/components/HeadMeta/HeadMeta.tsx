@@ -31,7 +31,7 @@ const HeadMeta = ({ metaDescription , metAlt, metaImage, metaTitle} : HeadMetaPr
             {pathname === '/' ? (<meta property="og:url" content={`${DOMAIN}`}/>) :( <meta property="og:url" content={`${DOMAIN}${pathname}`}/>)}
            
             <meta property="og:title" content={ metaTitle ?  metaTitle : "AlphaGrooming"}/>
-            <meta property="og:description" content={metaDescription ? metaDescription : `Welcome to Alpha Grooming, the premier resource for all men's skincare, beard care, and haircare! At Alpha Grooming, we believe that every man deserves to look and feel his best, which is why we've put together an extensive collection of expert techniques, innovative routines, and useful recommendations to assist you in putting your best face forward.That said, grooming is only one aspect of expressing your alpha identity. We're here to educate you, inspire confidence, and help you up your groom!`}/>
+            <meta property="og:description" content={metaDescription ? metaDescription : `Welcome to Alpha Grooming, the premier resource for all men's skincare, perfume, and haircare! At Alpha Grooming, we believe that every man deserves to look and feel his best, which is why we've put together an extensive collection of expert techniques, innovative routines, and useful recommendations to assist you in putting your best face forward.That said, grooming is only one aspect of expressing your alpha identity. We're here to educate you, inspire confidence, and help you up your groom!`}/>
             <meta property="og:site_name" content="AlphaGrooming"/>
             <meta property="og:image" content={metaImage ? metaImage : `${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH ?? '' : ''}/favicon/safari-pinned-tab.svg`} />
 
@@ -43,7 +43,7 @@ const HeadMeta = ({ metaDescription , metAlt, metaImage, metaTitle} : HeadMetaPr
             <meta property="og:image:alt" content={metAlt ? metAlt : `ImageAlphaGrooming Logo Dark`}/>
             <meta property="og:image:width" content="1600"/>
             <meta property="og:image:height" content="1490"/>
-            <meta name="keywords" content="men, skincare , beard care , hairstyle , routine"/>
+            <meta name="keywords" content="men, skincare , hairstyle , routine, fragrances , perfume"/>
             <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
             <meta name="author" content="AlphaGrooming"/>
             <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
@@ -72,7 +72,7 @@ const HeadMeta = ({ metaDescription , metAlt, metaImage, metaTitle} : HeadMetaPr
               
  
 
-            <meta name="description" content={metaDescription ? metaDescription : `Welcome to Alpha Grooming, the premier resource for all men's skincare, beard care, and haircare! At Alpha Grooming, we believe that every man deserves to look and feel his best, which is why we've put together an extensive collection of expert techniques, innovative routines, and useful recommendations to assist you in putting your best face forward.That said, grooming is only one aspect of expressing your alpha identity. We're here to educate you, inspire confidence, and help you up your groom!`} />
+            <meta name="description" content={metaDescription ? metaDescription : `Welcome to Alpha Grooming, the premier resource for all men's skincare, fragrances! At Alpha Grooming, we believe that every man deserves to look and feel his best, which is why we've put together an extensive collection of expert techniques, innovative routines, and useful recommendations to assist you in putting your best face forward.That said, grooming is only one aspect of expressing your alpha identity. We're here to educate you, inspire confidence, and help you up your groom!`} />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <link rel="icon" type="image/x-icon" href={`${process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH ?? '' : ''}/favicon/favicon.ico`} />
 

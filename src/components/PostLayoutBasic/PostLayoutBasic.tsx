@@ -19,15 +19,15 @@ const PostLayoutThirteen = ({data, postSizeMd, postBgDark} : PostLayoutBasicProp
          
             <Link href={`/`}>
                 <span className="align-self-center border border-5 rounded shadow-lg p-3 mb-5 border-primary">
-                <Image
-                src={urlForImage(data.mainImage)}
+                {data.mainImage && <Image
+                src={urlForImage(data.mainImage) || "/images/placeholder.png"}
                 alt={data.mainImage.alt}
                 width={postSizeMd === true ? 285 : 150}
                 height={postSizeMd === true ? 285 : 150}
                 placeholder="blur"
                 blurDataURL="/images/placeholder.png"
                 className="shadow-lg p-3 mb-5"
-                />
+                />}
                 </span>
             </Link>
             
@@ -39,7 +39,7 @@ const PostLayoutThirteen = ({data, postSizeMd, postBgDark} : PostLayoutBasicProp
            </div>
            <h3 className="axil-post-title hover-line hover-line" style={{color:"black"}}>
                 <Link href={`/`}>
-                    Beard Care
+                Fragrance & Perfume
                 </Link>
             </h3>
           <div className="post-metas">

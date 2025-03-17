@@ -63,9 +63,33 @@ export async function generateMetadata(
   }
 }
 
+import React from "react";
+import Link from "next/link";
+
+const ArchivedPage = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 text-center p-8">
+      <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+        This Page is Archived
+      </h1>
+      <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+        The content you are looking for is no longer available. However, feel free to explore other sections of our website.
+      </p>
+      <Link href="/">
+        <div className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition">
+          Go Back to Home
+        </div>
+      </Link>
+    </div>
+  );
+};
 
 export default async function Page({params} : {params: QueryParams}) {
   const initial = await loadQuery<SanityDocument>(POST_QUERY, params);
+  console.log('initial', initial?.data?.keyword)
+  if (initial?.data?.keyword?.includes("archived")) {
+    return <ArchivedPage />;
+  }
 
 
   if (!initial) {
