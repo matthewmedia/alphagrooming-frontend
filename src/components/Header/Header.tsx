@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button, Badge } from "@/ui";
 import { Menu, X, Search, User, Scissors } from "lucide-react";
-
+import Image from "next/image";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,11 +21,19 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="bg-slate-900 p-2 rounded-lg">
-              <Scissors className="w-6 h-6 text-white" />
+            <div className="w-24 h-24 flex items-center justify-center rounded-lg ">
+              <Image
+                src="/logo.png"
+                alt="Alpha Grooming Logo"
+                width={100}
+                height={100}
+                className="object-contain object-center w-24 h-24"
+                priority
+                onClick={() => (window.location.href = "/")}
+              />
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-slate-900">
+            <div className="flex flex-col justify-center">
+              <h1 className="text-xl font-bold text-slate-900 leading-tight">
                 AlphaGrooming
               </h1>
               <p className="text-xs text-slate-500 leading-none">
